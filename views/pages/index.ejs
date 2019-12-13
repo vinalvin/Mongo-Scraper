@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="active-menu">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tech Gadgets Scraper</title>
+
+    <!-- Link to bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Bootswatch 4 -->
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/cerulean/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-C++cugH8+Uf86JbNOnQoBweHHAe/wVKN/mb0lTybu/NZ9sEYbd+BbbYtNpWYAsNP" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Inline&display=swap" rel="stylesheet">
+
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+
+</head>
+
+<body>
+    <% include ../partials/hearder %>
+
+    <div class="container">
+        <% for (var i = 0; i < 10; i++){%>
+        <div class="thumbnail" style="padding: 10px;">
+            <div class="row">
+                <div class="col-md-9">
+                    <h4><%= results[i].title %></h4>
+                    <p><%= results[i].summary %><a href="<%= results[i].link %>">Read more...</a></p>
+                </div>
+
+                <button class="comment waves-effect waves-light btn pull-right">Comment</button>
+                <button class="delete waves-effect waves-light btn pull-right">Save</button>
+
+            </div>
+        </div>
+        <% } %>
+    </div>
+
+    <%- include ../partials/script %>
+    <%- include ../partials/footer %>
+</body>
+
+</html>

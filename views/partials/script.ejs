@@ -1,0 +1,27 @@
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script>
+  $(document).on("click", ".save", function () {
+    event.preventDefault();
+    // console.log("click")
+    var title = $(this).children().text();
+    var summary = $(this).parent().parent().children().eq(1).text();
+    var link = $(this).children().eq(0).attr("href");
+
+    $.ajax({
+      url: "/save",
+      method: "POST",
+      data: {
+        title: title,
+        summary: summary,
+        link: link
+      }
+    }).then(function (response) {
+      console.log("hello", response)
+    })
+  })
+</script>
